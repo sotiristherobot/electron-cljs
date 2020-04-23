@@ -14,14 +14,6 @@
   )
 
 (defn main []
-  ; CrashReporter can just be omitted
-  (.start crashReporter
-          (clj->js
-           {:companyName "MyAwesomeCompany"
-            :productName "MyAwesomeApp"
-            :submitURL "https://example.com/submit-url"
-            :autoSubmit false}))
-
   (.on app "window-all-closed" #(when-not (= js/process.platform "darwin")
                                   (.quit app)))
   (.on app "ready" init-browser))
